@@ -1,0 +1,74 @@
+body {
+    background: url('https://i.pinimg.com/originals/47/2e/48/472e488ac82a6a09b10b8969a96bf03a.gif') no-repeat center center fixed;
+    background-size: cover;
+   
+}
+
+.numeros {
+    border: 1px solid white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 50px;
+    margin: 5px;
+    color: white;
+    cursor: pointer;
+}
+
+.libre {
+    background-color: gray;
+}
+
+.debe {
+    background-color: red;
+}
+
+.pago {
+    background-color: green;
+}
+
+.numero-circulo {
+    border: 2px solid white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    width: 40px;
+    margin: auto;
+    color: white;
+    font-weight: bold;
+}
+td span {
+    font-weight: bold;
+    font-size: 1.1em; /* Ajusta el tamaño de fuente según sea necesario */
+}
+.neon-frame {
+    position: absolute;
+    top: 10px; /* Ajusta la posición vertical */
+    right: 10px; /* Ajusta la posición horizontal */
+    padding: 10px;
+    border: 5px solid rgba(0, 255, 255, 0.7); /* Color del borde neón */
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5); /* Efecto de luz */
+    animation: pulse 1.5s infinite; /* Animación para el pulso */
+}
+
+.anime-image {
+    width: 200px; /* Ajusta el tamaño según sea necesario */
+    height: auto;
+    border-radius: 10px; /* Bordes redondeados */
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 30px rgba(0, 255, 255, 1);
+    }
+    100% {
+        box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+    }
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resumen de Compras</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="script.js" defer></script>
+</head>
+<body class="bg-dark text-white">
+
+    <div class="container mt-5">
+        <h2 class="text-center">Resumen de Compras de Lotería</h2>
+        <table class="table table-light table-responsive">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Número Escogido</th>
+                    <th>Estado</th>
+                    <th>Fecha y Hora de Compra</th>
+                    <th>Fecha del Sorteo</th>
+                    <th>Premio</th>
+                    <th>Valor de la Boleta</th>
+                </tr>
+            </thead>
+            <tbody id="resumen-lista"></tbody>
+        </table>
+        <button onclick="window.history.back()" class="btn btn-primary btn-block">Volver</button>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", cargarResumen);
+
+        function cargarResumen() {
+            const resumenLista = document.getElementById('resumen-lista');
+            const datosGuardados = JSON.parse(localStorage.getItem('loteriaDatos'));
+
+            if (datosGuardados) {
+                const usuarios = datosGuardados.usuarios || {};
+                for (let num in usuarios) {
+                    const usuario = usuarios[num];
+                    const tr = document.createElement('tr');
+                    tr.innerHTML = `
+                        <td>${usuario.nombre}</td>
+                        <td>${num.toString().padStart(2, '0')}</td>
+                        <td>${usuario.estado}</td>
+                        <td>${usuario.fechaCompra}</td>
+                        <td>${fechaSorteo}</td>
+                        <td>${premio}</td>
+                        <td>${valorBoleta}</td>
+                    `;
+                    resumenLista.appendChild(tr);
+                }
+            }
+        }
+    </script>
+</body>
+</html>

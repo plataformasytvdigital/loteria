@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lotería - Aplicación</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+</head>
+
+<body class="bg-dark text-white">
+
+    <div class="container mt-5">
+        <header class="text-center mb-4">
+            <img src="imagenes/LOGO.png" alt="Logo" class="mb-3" style="width: 300px;">
+            <h1>💵PREMIO $150,000</h1>
+            <h2 id="loteria-nombre"></h2>
+            <p id="fecha"></p>
+            <p id="premio"></p>
+            <h3>💰valor de la boleta $2,000</h3>
+            <p id="valor-boleta"></p>
+        <img src="imagenes/Loteria-de-Bogota.jpeg" alt="Anime" class="anime-image">
+        </header>
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="#numeros">Números</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#usuarios">Usuarios</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" id="verResumen">Ver Resumen</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <section id="numeros" class="mb-4">
+            <h2 style="text-align: center;">Números disponibles</h2>
+            <div class="row" id="numeros-container"></div>
+            <div id="acciones" class="mt-4" style="display:none;">
+                <input type="text" id="nombre-participante" class="form-control mb-2" placeholder="Ingrese su nombre" required>
+                <input type="text" id="celular-participante" class="form-control mb-2" placeholder="Ingrese su celular (ej. 3212345678)" required>
+                <button id="guardar" class="btn btn-success">Guardar</button>
+                <button id="debe" class="btn btn-danger">Debe</button>
+                <button id="pago" class="btn btn-primary">Pago</button>
+                <button id="borrar" class="btn btn-warning">Liberar</button>
+            </div>
+        </section>
+
+        <section id="usuarios" class="mb-4">
+            <h2 style="text-align: center;">Usuarios</h2>
+            <table class="table table-light table-responsive">
+                <thead>
+                    <tr style="text-align: center;">
+                        <th>Nombre</th>
+                        <th>Número</th>
+                        <th>Celular</th>
+                        <th>Estado</th>
+                        <th>Enviar Ticket</th>
+                    </tr>
+                </thead>
+                <tbody id="usuarios-lista"></tbody>
+            </table>
+        </section>
+
+        <button id="reiniciar" class="btn btn-danger btn-block">Reiniciar Sorteo</button>
+        <button id="generarPDF" class="btn btn-info btn-block mt-2">Generar Resumen en PDF</button>
+
+        <div id="ticket-template" style="display:none;">
+            <div class="ticket">
+                <h5>🎟️ Ticket de Lotería 🎟️</h5>
+                <p><strong>Nombre:</strong> <span id="ticket-nombre"></span></p>
+                <p><strong>Fecha de Sorteo:</strong> <span id="ticket-fecha-sorteo"></span></p>
+                <p><strong>Número Escogido:</strong> <span id="ticket-numero"></span></p>
+                <p><strong>Estado:</strong> <span id="ticket-estado"></span></p>
+                <p><strong>Fecha y Hora de Compra:</strong> <span id="ticket-fecha-compra"></span></p>
+                <p><strong>Premio:</strong> $1,000,000 COP</p>
+                <p><strong>Valor de la Boleta:</strong> $10,000 COP</p>
+            </div>
+        </div>
+    </div>
+    
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</body>
+</html>
